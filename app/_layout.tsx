@@ -1,21 +1,24 @@
 import { Stack } from 'expo-router';
+import { PaperProvider } from 'react-native-paper';
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: 'grey',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-        headerBackButtonMenuEnabled: true,
-      }}
+    <PaperProvider theme={{mode: 'exact'}}>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: 'grey',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerBackButtonMenuEnabled: true,
+        }}
       >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="details" />
-    </Stack>
+        <Stack.Screen options={{header: () => null}} name="index" />
+        <Stack.Screen options={{headerTitle: "اختر العملة", headerTitleAlign: "center"}} name="selectCurrency/index" />
+      </Stack>
+    </PaperProvider>
   );
-}
+};

@@ -1,0 +1,1 @@
+export { default as bettingSites } from "@/data/betting-sites";
